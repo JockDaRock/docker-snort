@@ -13,10 +13,15 @@ RUN ln -s /usr/lib64/snort-${SNORT_VERSION}_dynamicengine \
     ln -s /usr/lib64/snort-${SNORT_VERSION}_dynamicpreprocessor \
        /usr/local/lib/snort_dynamicpreprocessor
 
+COPY etc /etc/snort
+COPY preproc_rules /etc/snort/preproc_rules
+COPY rules /etc/snort/rules
+COPY so_rules /etc/snort/so_rules
+
 # Cleanup.
 RUN yum clean all && \
     rm -rf /var/log/* || true \
     rm -rf /var/tmp/* \
     rm -rf /tmp/*
 
-RUN /usr/sbin/snort -V
+RUN /usr/sbin/snort -c /etc/snort/snort.conf
