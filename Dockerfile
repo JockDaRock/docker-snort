@@ -21,9 +21,11 @@ COPY so_rules /etc/snort/so_rules
 RUN mkdir /var/log/snort
 
 # Cleanup.
-RUN yum clean all && \
-    rm -rf /var/log/* || true \
-    rm -rf /var/tmp/* \
-    rm -rf /tmp/*
+#RUN yum clean all && \
+#    rm -rf /var/log/* || true \
+#    rm -rf /var/tmp/* \
+#    rm -rf /tmp/*
+
+RUN yum clean all
 
 #RUN /usr/sbin/snort -c /etc/snort/snort.conf
