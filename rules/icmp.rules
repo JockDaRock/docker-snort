@@ -18,5 +18,6 @@
 #------------
 # ICMP RULES
 #------------
-
+alert icmp any any -> any any (msg:"Pinging...";sid:1000004;)
+alert tcp any any -> any 80 (msg:"Port 80 is accessing"; sid:1000003;)
 
