@@ -18,7 +18,7 @@ COPY preproc_rules /etc/snort/preproc_rules
 COPY rules /etc/snort/rules
 COPY so_rules /etc/snort/so_rules
 
-RUN mkdir /var/log/snort
+#RUN mkdir /var/log/snort
 
 # Cleanup.
 #RUN yum clean all && \
