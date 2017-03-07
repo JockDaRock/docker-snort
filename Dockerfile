@@ -31,3 +31,4 @@ RUN yum clean all
 
 RUN /usr/sbin/snort -D -A unsock -c /etc/snort/simple_snort.conf
 RUN nohup python snort_socket.py &
+
