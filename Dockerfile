@@ -17,6 +17,7 @@ COPY etc /etc/snort
 COPY preproc_rules /etc/snort/preproc_rules
 COPY rules /etc/snort/rules
 COPY so_rules /etc/snort/so_rules
+COPY snort_socket.py .
 
 #RUN mkdir /var/log/snort
 
@@ -28,4 +29,5 @@ COPY so_rules /etc/snort/so_rules
 
 RUN yum clean all
 
-#RUN /usr/sbin/snort -c /etc/snort/snort.conf
+RUN /usr/sbin/snort -D -A unsock -c /etc/snort/simple_snort.conf
+RUN nohup python snort_socket.py &
