@@ -14,9 +14,9 @@ RUN ln -s /usr/lib64/snort-${SNORT_VERSION}_dynamicengine \
        /usr/local/lib/snort_dynamicpreprocessor
 
 COPY etc /etc/snort
-COPY preproc_rules /etc/snort/preproc_rules
+#COPY preproc_rules /etc/snort/preproc_rules
 COPY rules /etc/snort/rules
-COPY so_rules /etc/snort/so_rules
+#COPY so_rules /etc/snort/so_rules
 COPY snort_socket.py .
 
 #RUN mkdir /var/log/snort
